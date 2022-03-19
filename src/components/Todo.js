@@ -4,10 +4,11 @@ import PropTypes from "prop-types";
 Todo.propTypes = {
   todo: PropTypes.object,
   removeTodo: PropTypes.func,
-  updateTodoId: PropTypes.string,
+  updateTodoId: PropTypes.number,
   getEditTodo: PropTypes.func,
   updateTodo: PropTypes.func,
   markCompleted: PropTypes.func,
+  filterByStatus: PropTypes.func,
   index: PropTypes.number,
 };
 
@@ -21,6 +22,8 @@ function Todo({
   index,
 }) {
   const isEditing = updateTodoId === todo.id;
+  console.log(updateTodoId);
+  console.log(todo.id);
   const [text, setText] = useState(todo.text);
 
   const onChangeTitle = (event) => {
@@ -35,16 +38,29 @@ function Todo({
       },
       index
     );
-    getIdTodoUpdate("");
+    getIdTodoUpdate();
   };
 
-  return (
-    <li
-      className={`${isEditing ? "editing" : ""} ${
-        todo.isCompleted ? "completed" : ""
-      }`}
-    >
-      {!isEditing ? (
+  if (isEditing) {
+    return (
+      <>
+        <input
+          className="edit"
+          value={text}
+          type="text"
+          onChange={onChangeTitle}
+          onBlur={onEditTodo}
+          onKeyPress={(e) => {
+            if (e.key === "Enter" && text) {
+              onEditTodo();
+            }
+          }}
+        />
+      </>
+    );
+  } else {
+    return (
+      <li className={` ${todo.isCompleted ? "completed" : ""}`}>
         <div className="view">
           <input
             className="toggle"
@@ -58,24 +74,9 @@ function Todo({
           </label>
           <button className="destroy" onClick={() => removeTodo(todo.id)} />
         </div>
-      ) : (
-        <>
-          <input
-            className="edit"
-            value={text}
-            type="text"
-            onChange={onChangeTitle}
-            onBlur={onEditTodo}
-            onKeyPress={(e) => {
-              if (e.key === "Enter" && text) {
-                onEditTodo();
-              }
-            }}
-          />
-        </>
-      )}
-    </li>
-  );
+      </li>
+    );
+  }
 }
 
 export default Todo;
