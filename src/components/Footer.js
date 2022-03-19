@@ -1,6 +1,9 @@
-import React, { memo } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 
-const Footer = memo((props) => {
+Footer.propTypes = { status: PropTypes.string, getStatus: PropTypes.func };
+
+function Footer(status, getStatus) {
   return (
     <footer className="footer">
       <span className="todo-count">
@@ -11,19 +14,27 @@ const Footer = memo((props) => {
       </span>
       <ul className="filters">
         <li>
-          <a href="#/" className="selected">
+          <a href="#/" className="selected" onClick={() => getStatus("ALL")}>
             All
           </a>
         </li>
         <span></span>
         <li>
-          <a href="#/active" className="selected">
+          <a
+            href="#/active"
+            className="selected"
+            onClick={() => getStatus("ACTIVE")}
+          >
             Active
           </a>
         </li>
         <span></span>
         <li>
-          <a href="#/completed" className="selected">
+          <a
+            href="#/completed"
+            className="selected"
+            onClick={() => getStatus("ACTIVE")}
+          >
             Completed
           </a>
         </li>
@@ -32,6 +43,6 @@ const Footer = memo((props) => {
       <button className="clear-completed">Clear completed</button>
     </footer>
   );
-});
+}
 
 export default Footer;
