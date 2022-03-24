@@ -1,71 +1,50 @@
-import PropTypes from "prop-types";
-import React from "react";
-import Filter from "./Filter";
+import React, { memo } from "react";
 
-Footer.propTypes = {
-  status: PropTypes.string,
-  getStatus: PropTypes.func,
-  clearCompleted: PropTypes.func,
-  numOfTodosLeft: PropTypes.number,
-  numOfTodos: PropTypes.number,
-};
-
-function Footer({
-  status,
-  getStatus,
-  numOfTodosLeft,
-  numOfTodos,
-  clearCompleted,
-}) {
-  const filterBtns = [
-    {
-      id: 1,
-      title: "All",
-      isActive: status === "ALL",
-      onClick: () => getStatus("ALL"),
-      link: "",
-    },
-    {
-      id: 2,
-      title: "Active",
-      isActive: status === "ACTIVE",
-      onClick: (e) => {
-        // e.preventDefault();
-        getStatus("ACTIVE");
-      },
-      link: "active",
-    },
-    {
-      id: 3,
-      title: "Completed",
-      isActive: status === "COMPLETED",
-      onClick: (e) => {
-        // e.preventDefault();
-        getStatus("COMPLETED");
-      },
-      link: "completed",
-    },
-  ];
+const Footer = memo((props) => {
+  // const { setStatusFilter, activeButton, clearCompleted, numOfTodosLeft, numOfTodos } = props
   return (
     <footer className="footer">
       <span className="todo-count">
-        <strong>{numOfTodosLeft}</strong>
+        <strong>1</strong>
         <span> </span>
-        <span>{numOfTodosLeft > 1 ? "items" : "item"}</span>
+        <span>item</span>
         <span> left</span>
       </span>
       <ul className="filters">
-        {filterBtns.map((item) => (
-          <Filter key={item.id} {...item} />
-        ))}
+        <li>
+          <a
+            href="#/"
+            // className={`${activeButton === 'ALL' ? "selected" : ''}`}
+            // onClick={() => setStatusFilter('ALL')}
+          >
+            All
+          </a>
+        </li>
+        <span></span>
+        <li>
+          <a
+            href="#/active"
+            // className={`${activeButton === 'ACTIVE' ? "selected" : ''}`}
+            // onClick={() => setStatusFilter('ACTIVE')}
+          >
+            Active
+          </a>
+        </li>
+        <span></span>
+        <li>
+          <a
+            href="#/completed"
+            // className={`${activeButton === 'COMPLETED' ? "selected" : ''}`}
+            // onClick={() => setStatusFilter('COMPLETED')}
+          >
+            Completed
+          </a>
+        </li>
       </ul>
-      {numOfTodosLeft < numOfTodos && (
-        <button className="clear-completed" onClick={clearCompleted}>
-          Clear completed
-        </button>
-      )}{" "}
+
+      <button className="clear-completed">Clear completed</button>
     </footer>
   );
-}
+});
 
 export default Footer;

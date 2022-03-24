@@ -1,78 +1,32 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 
-Todo.propTypes = {
-  todo: PropTypes.object,
-  removeTodo: PropTypes.func,
-  updateTodoId: PropTypes.number,
-  getEditTodo: PropTypes.func,
-  updateTodo: PropTypes.func,
-  markCompleted: PropTypes.func,
-  filterByStatus: PropTypes.func,
-  index: PropTypes.number,
-};
+class Todo extends React.Component {
+  // constructor(props) {
+  //   super(props);
 
-function Todo({
-  todo,
-  removeTodo,
-  updateTodoId,
-  getIdTodoUpdate,
-  updateTodo,
-  markCompleted,
-  index,
-}) {
-  const isEditing = updateTodoId === todo.id;
-  console.log(updateTodoId);
-  console.log(todo.id);
-  const [text, setText] = useState(todo.text);
+  //   this.handleOnClick = this.handleOnClick.bind(this);
+  // }
 
-  const onChangeTitle = (event) => {
-    setText(event.target.value);
-  };
+  // handleOnClick() {
+  //   // item.isCompleted =!item.isCompleted
+  //   console.log(this.props.item);
+  // }
 
-  const onEditTodo = () => {
-    updateTodo(
-      {
-        ...todo,
-        text,
-      },
-      index
-    );
-    getIdTodoUpdate();
-  };
+  render() {
+    const { item, onClick } = this.props;
 
-  if (isEditing) {
     return (
-      <>
-        <input
-          className="edit"
-          value={text}
-          type="text"
-          onChange={onChangeTitle}
-          onBlur={onEditTodo}
-          onKeyPress={(e) => {
-            if (e.key === "Enter" && text) {
-              onEditTodo();
-            }
-          }}
-        />
-      </>
-    );
-  } else {
-    return (
-      <li className={` ${todo.isCompleted ? "completed" : ""}`}>
+      <li className={item.isCompleted ? "completed" : ""}>
         <div className="view">
           <input
             className="toggle"
             type="checkbox"
-            checked={todo.isCompleted}
-            onChange={() => markCompleted(todo.id)}
+            onClick={onClick}
+            checked={item.isCompleted}
+            onChange={() => {}}
           />
-          {/* <input type="text" value={todo.text} /> */}
-          <label onDoubleClick={() => getIdTodoUpdate(todo.id)}>
-            {todo.text}
-          </label>
-          <button className="destroy" onClick={() => removeTodo(todo.id)} />
+          <label>{item.title}</label>
+          <button className="destroy" />
         </div>
       </li>
     );
