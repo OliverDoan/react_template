@@ -1,16 +1,24 @@
+import React from "react";
+
 import "./App.css";
 import TodoItem from "./components/learn_code_tokyo/todoItem";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <TodoItem title="Learn Code" />
-        <TodoItem title="Todo" />
-        <TodoItem title="GoodLuck" />
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+    this.todoItems = ["React", "Hook", "Redux"];
+  }
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          {this.todoItems.map((item, index) => (
+            <TodoItem key={index} title={item} />
+          ))}
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
