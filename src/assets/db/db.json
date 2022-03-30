@@ -2,7 +2,7 @@
   "contacts": [
     {
       "id": "dc46f7e5-8971-41ef-abe3-6b91244fe9e5",
-      "name": "Oliver",
+      "name": "Oliver Doan",
       "email": "oliver@gmail.com"
     },
     {
@@ -16,19 +16,9 @@
       "email": "jason@gmail.com"
     },
     {
-      "id": "c0161296-3a43-4414-8ac8-296dd95bb2a2",
-      "name": "ENGLISH",
-      "email": "doanvietthuan99@gmail.com"
-    },
-    {
-      "id": "3524c44b-e156-49cb-bd0b-112ad483268d",
-      "name": "SQL22222222223555555555555",
-      "email": "admin@gmail.com"
-    },
-    {
-      "id": "337f10f2-971b-4a54-8eff-5724f35ecdaa",
-      "name": "thanh222",
-      "email": "doanvietthuan105@gmail.com"
+      "id": "cbad8200-c9d2-4d45-b065-aae6d26d7a89",
+      "name": "Lucy",
+      "email": "lucy@gmail.com"
     }
   ]
 }

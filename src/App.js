@@ -10,6 +10,8 @@ import EditContact from "./components/EditContact";
 import api from "./api/contacts";
 function App(props) {
   const [contacts, setContacts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
   //RetrieveContacts
   const retrieveContacts = async () => {
@@ -48,6 +50,24 @@ function App(props) {
       })
     );
   };
+
+  const searchHandler = (searchTerm) => {
+    console.log(searchTerm);
+    setSearchTerm(searchTerm);
+    if (searchTerm !== "") {
+      const newContactList = contacts.filter((contact) => {
+        console.log(Object.values(contact).join(" "));
+        return Object.values(contact)
+          .join(" ")
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase());
+      });
+      setSearchResults(newContactList);
+    } else {
+      setSearchResults(contacts);
+    }
+  };
+
   useEffect(() => {
     const getAllCOntacts = async () => {
       const allContacts = await retrieveContacts();
@@ -68,7 +88,9 @@ function App(props) {
             path="/"
             element={
               <ContactList
-                contacts={contacts}
+                contacts={searchTerm.length < 1 ? contacts : searchResults}
+                term={searchTerm}
+                searchKeyword={searchHandler}
                 getContactId={removeContactHandler}
               />
             }
