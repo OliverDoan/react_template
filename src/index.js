@@ -21,10 +21,10 @@ class Root extends Component {
 }
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Root />
-    </BrowserRouter>
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <BrowserRouter>
+    <Root />
+  </BrowserRouter>,
+  // </React.StrictMode>,
   document.getElementById("root")
 );
