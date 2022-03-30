@@ -16,7 +16,7 @@ export class Register extends Component {
     email: "",
     password: "",
     passwordConfirm: "",
-    login: false,
+    loading: false,
     errors: [],
     userRef: firebase.database().ref("users"),
   };
@@ -181,7 +181,7 @@ export class Register extends Component {
             </Form>
             {this.state.errors.length > 0 && (
               <Message error>
-                <h3>Errorrrr</h3>
+                <h3>Error</h3>
                 {this.displayError(this.state.errors)}
               </Message>
             )}
