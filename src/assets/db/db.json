@@ -1,0 +1,34 @@
+{
+  "contacts": [
+    {
+      "id": "dc46f7e5-8971-41ef-abe3-6b91244fe9e5",
+      "name": "Oliver",
+      "email": "oliver@gmail.com"
+    },
+    {
+      "id": "901ac247-796c-4bcb-96d1-f6a31ad93088",
+      "name": "Henry",
+      "email": "henry@gmail.com"
+    },
+    {
+      "id": "5e39fa5a-c9cf-4449-88ad-8188f9f19493",
+      "name": "Jason",
+      "email": "jason@gmail.com"
+    },
+    {
+      "id": "c0161296-3a43-4414-8ac8-296dd95bb2a2",
+      "name": "ENGLISH",
+      "email": "doanvietthuan99@gmail.com"
+    },
+    {
+      "id": "3524c44b-e156-49cb-bd0b-112ad483268d",
+      "name": "SQL22222222223555555555555",
+      "email": "admin@gmail.com"
+    },
+    {
+      "id": "337f10f2-971b-4a54-8eff-5724f35ecdaa",
+      "name": "thanh222",
+      "email": "doanvietthuan105@gmail.com"
+    }
+  ]
+}
