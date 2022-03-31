@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { Grid } from "semantic-ui-react";
+import { Button, Grid, Header, Icon, Segment } from "semantic-ui-react";
 import SidePane from "./sidePane/SidePane";
 import firebase from "../db/firebase";
 import { clearUser, setUser } from "../redux/users/userActions";
 import { connect } from "react-redux";
+import AddWork from "./addWork/AddWork";
 export class App extends Component {
   handleSignOut = () => {
     firebase
@@ -23,6 +24,15 @@ export class App extends Component {
         >
           <Grid.Column width="4">
             <SidePane onSignOut={this.handleSignOut}></SidePane>
+          </Grid.Column>
+          <Grid.Column width="12">
+            <Grid>
+              <Grid.Column width="16">
+                <Grid.Row style={{ paddingBottom: "20px" }}>
+                  <AddWork />
+                </Grid.Row>
+              </Grid.Column>
+            </Grid>
           </Grid.Column>
         </Grid>
       </>
