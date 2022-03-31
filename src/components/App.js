@@ -1,10 +1,19 @@
 import React, { Component } from "react";
-import { Button, Grid, Header, Icon, Segment } from "semantic-ui-react";
+import {
+  Button,
+  Divider,
+  Grid,
+  Header,
+  Icon,
+  Segment,
+} from "semantic-ui-react";
 import SidePane from "./sidePane/SidePane";
 import firebase from "../db/firebase";
 import { clearUser, setUser } from "../redux/users/userActions";
 import { connect } from "react-redux";
 import AddWork from "./addWork/AddWork";
+import ContentPane from "./contentPane/ContentPane";
+import EmptyMessagePane from "./contentPane/EmptyMessagePane";
 export class App extends Component {
   handleSignOut = () => {
     firebase
@@ -31,6 +40,14 @@ export class App extends Component {
                 <Grid.Row style={{ paddingBottom: "20px" }}>
                   <AddWork />
                 </Grid.Row>
+                <Divider></Divider>
+                <Grid.Row>
+                  {this.props.workDateData ? (
+                    <ContentPane />
+                  ) : (
+                    <EmptyMessagePane workDate={this.props.workDate} />
+                  )}
+                </Grid.Row>
               </Grid.Column>
             </Grid>
           </Grid.Column>
@@ -40,7 +57,13 @@ export class App extends Component {
   }
 }
 
-const mapStateToProps = ({ users: { loading } }) => ({});
+const mapStateToProps = ({
+  users: { loading },
+  workDates: { workDate, workDateData },
+}) => ({
+  workDate: workDate,
+  workDateData,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   setUser: (user) => dispatch(setUser(user)),
