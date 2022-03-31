@@ -2,8 +2,8 @@ import workDateActionType from "./workDateActionType";
 
 const initialState = {
   workDate: "",
-  workData: null,
-  refreshWorkId: Math.random(),
+  workDateData: null,
+  refreshWorkDateDataId: Math.random(),
 };
 
 const workDateReducer = (state = initialState, { type, payload }) => {
@@ -11,11 +11,11 @@ const workDateReducer = (state = initialState, { type, payload }) => {
     case workDateActionType.SET_WORK_DATE:
       return { ...state, workDate: payload };
 
-    case workDateActionType.SET_WORK_DATA:
-      return { ...state, workData: payload };
+    case workDateActionType.SET_WORK_DATE_DATA:
+      return { ...state, workDateData: payload };
 
-    case workDateActionType.REFRESH_WORK_ID:
-      return { ...state, refreshWorkId: payload };
+    case workDateActionType.REFRESH_WORK_DATE_DATA_ID:
+      return { ...state, refreshWorkDateDataId: payload };
 
     default:
       return state;

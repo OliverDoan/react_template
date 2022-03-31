@@ -1,7 +1,7 @@
 import userActionTypes from "./userActionTypes";
 
 const initialState = {
-  users: null,
+  user: null,
   loading: true,
 };
 

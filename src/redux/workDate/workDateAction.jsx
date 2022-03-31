@@ -6,11 +6,11 @@ export const setWorkDate = (workDate) => ({
 });
 
 export const setWorkDateData = (workDateData) => ({
-  type: workDateActionType.SET_WORK_DATA,
+  type: workDateActionType.SET_WORK_DATE_DATA,
   payload: workDateData,
 });
 
-export const refreshWorkId = (id) => ({
-  type: workDateActionType.REFRESH_WORK_ID,
+export const refreshWorkDateDataId = (id) => ({
+  type: workDateActionType.REFRESH_WORK_DATE_DATA_ID,
   payload: id,
 });

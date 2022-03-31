@@ -3,7 +3,7 @@ import userReducer from "./users/userReducer";
 import workDateReducer from "./workDate/workDateReducer";
 const rootReducer = combineReducers({
   users: userReducer,
-  workDate: workDateReducer,
+  workDates: workDateReducer,
 });
 
 export default rootReducer;
