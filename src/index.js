@@ -5,13 +5,14 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import App from "./components/App";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
+import Home from "./components/home/Home";
 
 class Root extends Component {
   render() {
     return (
       <>
         <Switch>
-          <Route exact path="/" component={App} />
+          <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
         </Switch>
