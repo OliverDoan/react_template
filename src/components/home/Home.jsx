@@ -51,6 +51,7 @@ export class Home extends Component {
               ></DateInput>
             </Segment>
           </Grid.Column>
+
           <Grid.Column width="12">
             <Grid>
               <Grid.Column width="16">
