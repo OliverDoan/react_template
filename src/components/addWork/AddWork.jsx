@@ -20,8 +20,8 @@ export class AddWork extends Component {
   state = {
     modal: false,
     workName: "",
-    workDateListRef: firebase.database().ref("workDateList"),
-    workListRef: firebase.database().ref("workList"),
+    workDateListRef: firebase.database().ref("workDates"),
+    workListRef: firebase.database().ref("works"),
   };
   handleChange = (event) => {
     const { name, value } = event.target;

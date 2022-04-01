@@ -24,6 +24,7 @@ export class App extends Component {
       });
   };
   render() {
+    const { workDate, workDateData, refreshWorkDateDataId } = this.props;
     return (
       <>
         <Grid
@@ -43,9 +44,12 @@ export class App extends Component {
                 <Divider></Divider>
                 <Grid.Row>
                   {this.props.workDateData ? (
-                    <ContentPane />
+                    <ContentPane
+                      key={`${workDateData.id}${refreshWorkDateDataId}`}
+                      workDateId={workDateData.id}
+                    />
                   ) : (
-                    <EmptyMessagePane workDate={this.props.workDate} />
+                    <EmptyMessagePane workDate={workDate} key={workDate} />
                   )}
                 </Grid.Row>
               </Grid.Column>

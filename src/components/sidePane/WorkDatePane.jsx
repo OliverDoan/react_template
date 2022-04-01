@@ -7,7 +7,7 @@ import {
 } from "../../redux/workDate/workDateAction";
 import firebase from "../../db/firebase";
 class WorkDatePane extends Component {
-  state = { workDateListRef: firebase.database().ref("workDateList") };
+  state = { workDateListRef: firebase.database().ref("workDates") };
 
   componentDidMount() {
     const now = new Date();
@@ -33,7 +33,7 @@ class WorkDatePane extends Component {
           this.props.setWorkDateData(data[key]);
         } else {
           this.props.setWorkDateData(null);
-          console.log("error");
+          console.log(">>>Work Date Data null");
         }
       });
     console.log(value);
